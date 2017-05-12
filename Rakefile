@@ -6,4 +6,8 @@ task :bump do
   cd "build" do
     sh("echo hello >> foo-1.txt; git add foo-1.txt; git commit -m 'go-user-on-foo-1'; git push ")
   end
+  sh("echo 'Creating new branch'")
+  sh("git checkout -b foo-x")
+  sh("echo hello >> foo-x.txt; git add foo-x.txt; git commit -m 'go-user-on-foo-x'; git push origin foo-x")
+  sh("git checkout master")
 end
